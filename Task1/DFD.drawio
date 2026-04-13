@@ -1,0 +1,216 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6" pages="5">
+  <diagram name="Запись" id="dfd-a-asis">
+    <mxGraphModel dx="1426" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ttl" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=24;fontStyle=1;" value="As-Is Запись пациента" vertex="1">
+          <mxGeometry height="40" width="1080" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_patient" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Patient&#xa;(источник данных)" vertex="1">
+          <mxGeometry height="80" width="200" x="20" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_doctor" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Doctor" vertex="1">
+          <mxGeometry height="70" width="200" x="20" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_mail" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект/система&#xa;Exchange Mail Server" vertex="1">
+          <mxGeometry height="80" width="200" x="20" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="proc_admin" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;" value="Процесс&#xa;Administrator (ресепшен)&#xa;1) принимает данные&#xa;2) вносит в Excel&#xa;3) прикрепляет файлы" vertex="1">
+          <mxGeometry height="140" width="300" x="340" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_patients" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;strokeWidth=2;fillColor=#dae8fc;" value="Хранилище данных&#xa;Patients (Excel)&#xa;PII" vertex="1">
+          <mxGeometry height="90" width="320" x="740" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_journal" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;strokeWidth=2;fillColor=#dae8fc;" value="Хранилище данных&lt;br&gt;Journal-Doctor-FIO (Excel)&lt;br&gt;PII" vertex="1">
+          <mxGeometry height="90" width="320" x="830" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_files" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;strokeWidth=2;fillColor=#dae8fc;" value="Хранилище данных&lt;br&gt;Data file (JPG/PDF/...)&lt;br&gt;PII/PHI" vertex="1">
+          <mxGeometry height="90" width="320" x="740" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" edge="1" parent="1" source="ext_patient" style="endArrow=block;html=1;strokeWidth=2;" target="proc_admin" value="PII: ФИО, ДР, телефон, email">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" edge="1" parent="1" source="proc_admin" style="endArrow=block;html=1;strokeWidth=2;" target="ds_patients" value="запись пациента">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" edge="1" parent="1" source="proc_admin" style="endArrow=block;html=1;strokeWidth=2;" target="ds_journal" value="запись к специалисту">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" edge="1" parent="1" source="proc_admin" style="endArrow=block;html=1;strokeWidth=2;" target="ds_files" value="прикрепление файлов">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f5" edge="1" parent="1" source="ext_doctor" style="endArrow=block;html=1;strokeWidth=2;" target="ds_journal" value="просмотр/правка своего журнала">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f6" edge="1" parent="1" source="proc_admin" style="endArrow=block;html=1;strokeWidth=2;" target="ext_mail" value="вложения/пересылка (PII/PHI)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Медкарта" id="dfd-b-asis">
+    <mxGraphModel dx="1426" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ttl" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=24;fontStyle=1;" value="As-Is Медкарта / файлы пациента" vertex="1">
+          <mxGeometry height="40" width="1080" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_patient" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Patient&#xa;(источник PHI)" vertex="1">
+          <mxGeometry height="80" width="220" x="50" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_doctor" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Doctor" vertex="1">
+          <mxGeometry height="70" width="220" x="50" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_mail" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект/система&#xa;Exchange Mail Server" vertex="1">
+          <mxGeometry height="80" width="220" x="40" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="proc_care" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;" value="Процесс&#xa;Ведение медданных&#xa;(осмотр/анализ/заключение)&#xa;ручные операции" vertex="1">
+          <mxGeometry height="110" width="320" x="480" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_files" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;strokeWidth=2;fillColor=#dae8fc;" value="Хранилище данных&lt;br&gt;Data file (сканы/документы)&lt;br&gt;PHI + PII" vertex="1">
+          <mxGeometry height="100" width="330" x="980" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" edge="1" parent="1" source="ext_patient" style="endArrow=block;html=1;strokeWidth=2;" target="proc_care" value="PHI (жалобы/анкета/медданные)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" edge="1" parent="1" source="ext_doctor" style="endArrow=block;html=1;strokeWidth=2;" target="proc_care" value="ведение/изменение данных">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" edge="1" parent="1" source="proc_care" style="endArrow=block;html=1;strokeWidth=2;" target="ds_files" value="сохранение файлов/сканов">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" edge="1" parent="1" source="ext_doctor" style="endArrow=block;html=1;strokeWidth=2;" target="ext_mail" value="пересылка/вложения (PHI)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Оплата" id="dfd-c-asis">
+    <mxGraphModel dx="1426" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ttl" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=24;fontStyle=1;" value="As-Is Оплата медицинских услуг" vertex="1">
+          <mxGeometry height="40" width="1080" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_patient" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Patient&#xa;(источник платежа)" vertex="1">
+          <mxGeometry height="80" width="230" x="60" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_cashier" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Cassier" vertex="1">
+          <mxGeometry height="70" width="230" x="60" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_bookkeeper" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Bookkeeper" vertex="1">
+          <mxGeometry height="70" width="230" x="60" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="proc_pay" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;" value="Процесс&#xa;Принятие оплаты&#xa;(через ККМ)" vertex="1">
+          <mxGeometry height="90" width="300" x="410" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_kkm" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;" value="Источник данных / система&#xa;ККМ&#xa;FIN" vertex="1">
+          <mxGeometry height="90" width="330" x="920" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_1c" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;" value="Хранилище данных / система&#xa;1C Бухгалтерия предприятия&#xa;(файловый режим)&#xa;FIN" vertex="1">
+          <mxGeometry height="120" width="330" x="910" y="385" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" edge="1" parent="1" source="ext_patient" style="endArrow=block;html=1;strokeWidth=2;" target="ext_cashier" value="оплата">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" edge="1" parent="1" source="ext_cashier" style="endArrow=block;html=1;strokeWidth=2;" target="proc_pay" value="принятие оплаты">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" edge="1" parent="1" source="proc_pay" style="endArrow=block;html=1;strokeWidth=2;" target="ds_kkm" value="чек/данные операции (FIN)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" edge="1" parent="1" source="ds_kkm" style="endArrow=block;html=1;strokeWidth=2;" target="ds_1c" value="информация о принятии денег&#xa;(TCP/IP-OLE)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f5" edge="1" parent="1" source="ext_bookkeeper" style="endArrow=block;html=1;strokeWidth=2;" target="ds_1c" value="процессинг платежей">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Анализы" id="dfd-d-asis">
+    <mxGraphModel dx="2595" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ttl" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=24;fontStyle=1;" value="As-Is Анализы (реестры + файлы)" vertex="1">
+          <mxGeometry height="40" width="1080" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_lab" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Laboratory&#xa;(источник результатов)" vertex="1">
+          <mxGeometry height="80" width="240" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_admin" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Administrator" vertex="1">
+          <mxGeometry height="70" width="240" x="-30" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_doctor" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Doctor" vertex="1">
+          <mxGeometry height="70" width="240" x="-100" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_mail" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект/система&#xa;Exchange Mail Server" vertex="1">
+          <mxGeometry height="80" width="240" x="-80" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="proc_labreg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;" value="Процесс&#xa;Учёт анализов за день&#xa;ручной ввод/сверка" vertex="1">
+          <mxGeometry height="100" width="320" x="360" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_registry" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;strokeWidth=2;fillColor=#dae8fc;" value="Хранилище данных&lt;br&gt;RegistryByDate (Excel)&lt;br&gt;PHI + PII" vertex="1">
+          <mxGeometry height="110" width="340" x="870" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_files" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;strokeWidth=2;fillColor=#dae8fc;" value="Хранилище данных&lt;br&gt;Data file (файл результата)&lt;br&gt;PHI + PII" vertex="1">
+          <mxGeometry height="110" width="340" x="780" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" edge="1" parent="1" source="ext_lab" style="endArrow=block;html=1;strokeWidth=2;" target="proc_labreg" value="результаты анализов">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" edge="1" parent="1" source="ext_admin" style="endArrow=block;html=1;strokeWidth=2;" target="proc_labreg" value="вносит/проверяет">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" edge="1" parent="1" source="proc_labreg" style="endArrow=block;html=1;strokeWidth=2;" target="ds_registry" value="запись в реестр">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" edge="1" parent="1" source="proc_labreg" style="endArrow=block;html=1;strokeWidth=2;" target="ds_files" value="прикрепление файла результата">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f5" edge="1" parent="1" source="ext_doctor" style="endArrow=block;html=1;strokeWidth=2;" target="ds_files" value="просмотр результата">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f6" edge="1" parent="1" source="proc_labreg" style="endArrow=block;html=1;strokeWidth=2;" target="ext_mail" value="пересылка/вложения">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="ТМЦ" id="dfd-e-asis">
+    <mxGraphModel dx="2595" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ttl" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=24;fontStyle=1;" value="As-Is Учёт ТМЦ" vertex="1">
+          <mxGeometry height="40" width="1080" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_wh" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Warehouse keeper&#xa;(источник данных о ТМЦ)" vertex="1">
+          <mxGeometry height="80" width="260" x="-70" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="proc_stock" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;" value="Процесс&#xa;Учет ТМЦ&#xa;в 1С (ручные операции)" vertex="1">
+          <mxGeometry height="90" width="320" x="350" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_1c_stock" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;" value="Хранилище данных / система&#xa;1C Торговля и склад&#xa;(файловый режим)" vertex="1">
+          <mxGeometry height="110" width="340" x="829" y="185" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_1c_acc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;" value="Хранилище данных / система&#xa;1C Бухгалтерия предприятия&#xa;(файловый режим)" vertex="1">
+          <mxGeometry height="110" width="340" x="829" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" edge="1" parent="1" source="ext_wh" style="endArrow=block;html=1;strokeWidth=2;" target="proc_stock" value="данные о ТМЦ">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" edge="1" parent="1" source="proc_stock" style="endArrow=block;html=1;strokeWidth=2;" target="ds_1c_stock" value="учёт/изменения">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" edge="1" parent="1" source="ds_1c_acc" style="endArrow=block;startArrow=block;html=1;strokeWidth=2;" target="ds_1c_stock" value="обмен данными (OLE)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

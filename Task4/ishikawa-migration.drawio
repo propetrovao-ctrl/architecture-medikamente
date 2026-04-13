@@ -1,0 +1,64 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+  <diagram name="миграция" id="ishikawa-medikamente">
+    <mxGraphModel dx="1410" dy="825" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="head" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;align=center;" value="следствие:&lt;br&gt;риски снижения производительности&lt;br&gt;и стабильности при миграции&lt;br&gt;на микросервисную архитектуру" vertex="1">
+          <mxGeometry height="90" width="200" x="720" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="spine" edge="1" parent="1" style="endArrow=none;html=1;strokeWidth=2;strokeColor=#666666;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="325" as="sourcePoint" />
+            <mxPoint x="720" y="325" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="b1" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#666666;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="325" as="sourcePoint" />
+            <mxPoint x="480" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;align=left;spacingLeft=6;" value="Инфраструктура&lt;br&gt;Один сервер в офисе&lt;br&gt;Рост нагрузки (×5, филиалы)&lt;br&gt;Резерв и отказоустойчивость" vertex="1">
+          <mxGeometry height="85" width="220" x="420" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#666666;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="325" as="sourcePoint" />
+            <mxPoint x="400" y="165" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;align=left;spacingLeft=6;" value="Программное обеспечение&lt;br&gt;Разнородные системы, общие ресурсы&lt;br&gt;Excel/файлы vs единая модель&lt;br&gt;1С файловый режим, ККМ по OLE" vertex="1">
+          <mxGeometry height="75" width="240" x="160" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="b3" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#666666;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="420" y="325" as="sourcePoint" />
+            <mxPoint x="300" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;align=left;spacingLeft=6;" value="Интеграция&lt;br&gt;Потоки между системами слабо формализованы&lt;br&gt;API лаборатории, платежи, новые сервисы&lt;br&gt;Синхронизация с 1С/ККМ при распилении" vertex="1">
+          <mxGeometry height="80" width="260" x="40" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="b4" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#666666;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="325" as="sourcePoint" />
+            <mxPoint x="260" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=left;spacingLeft=6;" value="Персонал&lt;br&gt;Малая IT-команда при росте систем&lt;br&gt;Ручной ввод и привычка к Excel&lt;br&gt;Двойной учёт Excel + 1С" vertex="1">
+          <mxGeometry height="85" width="240" x="20" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="b5" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#666666;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="325" as="sourcePoint" />
+            <mxPoint x="400" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=left;spacingLeft=6;" value="Процессы&lt;br&gt;Нет аудита действий с данными&lt;br&gt;Нет прозрачного пути данных (lineage)&lt;br&gt;Нет меток PII/PHI/FIN под автополитики" vertex="1">
+          <mxGeometry height="90" width="280" x="130" y="530" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
