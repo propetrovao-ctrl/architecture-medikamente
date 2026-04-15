@@ -1,0 +1,221 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6" pages="6">
+  <diagram name="Запись" id="tobe-dfd-a">
+    <mxGraphModel dx="1410" dy="825" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ext_patient" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Patient&#xa;(источник данных)" vertex="1">
+          <mxGeometry height="80" width="200" x="20" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_admin" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Administrator (ресепшен)" vertex="1">
+          <mxGeometry height="80" width="200" x="10" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_doctor" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Doctor" vertex="1">
+          <mxGeometry height="70" width="200" x="40" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="proc_portal" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;" value="Процесс&#xa;Портал клиента + портал ресепшена + CRM&#xa;RBAC/ABAC; согласие; IAM/MFA" vertex="1">
+          <mxGeometry height="130" width="320" x="400" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_crm" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;strokeWidth=2;fillColor=#dae8fc;" value="Хранилище данных&#xa;CRM / реестр пациентов&#xa;PII, at-rest" vertex="1">
+          <mxGeometry height="100" width="320" x="990" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_appt" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;strokeWidth=2;fillColor=#dae8fc;" value="Хранилище данных&#xa;Расписание / записи на приём&#xa;PII, at-rest" vertex="1">
+          <mxGeometry height="100" width="320" x="970" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" edge="1" parent="1" source="ext_patient" style="endArrow=block;html=1;strokeWidth=2;" target="proc_portal" value="PII, TLS, ЛК">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" edge="1" parent="1" source="ext_admin" style="endArrow=block;html=1;strokeWidth=2;" target="proc_portal" value="роль ресепшена, аудит">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" edge="1" parent="1" source="proc_portal" style="endArrow=block;html=1;strokeWidth=2;" target="ds_crm" value="данные пациента, минимизация">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" edge="1" parent="1" source="proc_portal" style="endArrow=block;html=1;strokeWidth=2;" target="ds_appt" value="запись на приём">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f5" edge="1" parent="1" source="ext_doctor" style="endArrow=block;html=1;strokeWidth=2;" target="ds_appt" value="свой календарь / записи">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Медкарта" id="tobe-dfd-b">
+    <mxGraphModel dx="1410" dy="825" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ext_patient" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Patient&#xa;(источник / просмотр)" vertex="1">
+          <mxGeometry height="80" width="220" x="50" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_doctor" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Doctor" vertex="1">
+          <mxGeometry height="70" width="220" x="50" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="proc_portal" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;" value="Процесс&#xa;Портал / приложение&#xa;политики доступа; только свои данные" vertex="1">
+          <mxGeometry height="110" width="320" x="520" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_ehr" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;strokeWidth=2;fillColor=#dae8fc;" value="Хранилище данных&#xa;EHR / медкарта&#xa;PHI, at-rest, lineage, теги" vertex="1">
+          <mxGeometry height="110" width="330" x="1060" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" edge="1" parent="1" source="ext_patient" style="endArrow=block;html=1;strokeWidth=2;" target="proc_portal" value="TLS; изоляция по пациенту">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" edge="1" parent="1" source="ext_doctor" style="endArrow=block;html=1;strokeWidth=2;" target="proc_portal" value="ведение PHI">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" edge="1" parent="1" source="proc_portal" style="endArrow=block;html=1;strokeWidth=2;" target="ds_ehr" value="чтение/запись по ролям">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Оплата" id="tobe-dfd-c">
+    <mxGraphModel dx="1410" dy="825" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ext_patient" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Patient" vertex="1">
+          <mxGeometry height="80" width="230" x="60" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_cashier" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Cassier" vertex="1">
+          <mxGeometry height="70" width="230" x="60" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_bookkeeper" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Bookkeeper" vertex="1">
+          <mxGeometry height="70" width="230" x="60" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="proc_pay" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;" value="Процесс&#xa;Платёжный шлюз&#xa;учёт в единой системе, журнал FIN" vertex="1">
+          <mxGeometry height="100" width="300" x="400" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_kkm" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;" value="Источник данных / система&#xa;ККМ&#xa;FIN" vertex="1">
+          <mxGeometry height="90" width="300" x="1050" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_unified" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;strokeWidth=2;fillColor=#dae8fc;" value="Хранилище данных&#xa;Учёт оплат (единая система)&#xa;FIN, at-rest" vertex="1">
+          <mxGeometry height="110" width="300" x="869" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_1c" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;" value="Хранилище данных / система&#xa;1C Бухгалтерия предприятия&#xa;FIN" vertex="1">
+          <mxGeometry height="110" width="300" x="1120" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" edge="1" parent="1" source="ext_patient" style="endArrow=block;html=1;strokeWidth=2;" target="proc_pay" value="оплата">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" edge="1" parent="1" source="ext_cashier" style="endArrow=block;html=1;strokeWidth=2;" target="proc_pay" value="касса, RBAC">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" edge="1" parent="1" source="proc_pay" style="endArrow=block;html=1;strokeWidth=2;" target="ds_kkm" value="операция ККМ">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" edge="1" parent="1" source="ds_kkm" style="endArrow=block;html=1;strokeWidth=2;" target="ds_1c" value="TCP/IP-OLE (как сейчас)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f5" edge="1" parent="1" source="proc_pay" style="endArrow=block;html=1;strokeWidth=2;" target="ds_unified" value="FIN, TLS, аудит">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f6" edge="1" parent="1" source="ext_bookkeeper" style="endArrow=block;html=1;strokeWidth=2;" target="ds_unified" value="процессинг, аудит">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f7" edge="1" parent="1" source="ext_bookkeeper" style="endArrow=block;html=1;strokeWidth=2;" target="ds_1c" value="бухгалтерия">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Анализы" id="tobe-dfd-d">
+    <mxGraphModel dx="1410" dy="825" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ext_lab" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Laboratory&#xa;(источник результатов)" vertex="1">
+          <mxGeometry height="80" width="240" x="40" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_patient" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Patient" vertex="1">
+          <mxGeometry height="70" width="240" x="40" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_doctor" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Doctor" vertex="1">
+          <mxGeometry height="70" width="240" x="40" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="proc_api" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;" value="Процесс&#xa;API Gateway / интеграция&#xa;контракт, минимум полей, токен" vertex="1">
+          <mxGeometry height="110" width="320" x="460" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_ehr" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;strokeWidth=2;fillColor=#dae8fc;" value="Хранилище данных&#xa;Результаты анализов (EHR)&#xa;PHI + PII, lineage" vertex="1">
+          <mxGeometry height="120" width="340" x="1040" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" edge="1" parent="1" source="ext_lab" style="endArrow=block;html=1;strokeWidth=2;" target="proc_api" value="TLS, auth, контракт API">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" edge="1" parent="1" source="proc_api" style="endArrow=block;html=1;strokeWidth=2;" target="ds_ehr" value="псевдоним, сохранение PHI">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" edge="1" parent="1" source="ext_patient" style="endArrow=block;html=1;strokeWidth=2;" target="proc_api" value="доступ к своим (через ЛК)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" edge="1" parent="1" source="ext_doctor" style="endArrow=block;html=1;strokeWidth=2;" target="ds_ehr" value="просмотр по роли">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="ТМЦ" id="tobe-dfd-e">
+    <mxGraphModel dx="2579" dy="825" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ext_wh" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Warehouse keeper&#xa;(источник данных о ТМЦ)" vertex="1">
+          <mxGeometry height="80" width="260" x="-90" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="proc_stock" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;" value="Процесс&#xa;Учёт ТМЦ в 1С&#xa;журнал изменений" vertex="1">
+          <mxGeometry height="90" width="320" x="320" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_1c_stock" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;" value="Хранилище данных / система&#xa;1C Торговля и склад&#xa;(файловый режим)" vertex="1">
+          <mxGeometry height="110" width="340" x="780" y="185" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_1c_acc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;" value="Хранилище данных / система&#xa;1C Бухгалтерия предприятия&#xa;(файловый режим)" vertex="1">
+          <mxGeometry height="110" width="340" x="780" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" edge="1" parent="1" source="ext_wh" style="endArrow=block;html=1;strokeWidth=2;" target="proc_stock" value="данные о ТМЦ">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" edge="1" parent="1" source="proc_stock" style="endArrow=block;html=1;strokeWidth=2;" target="ds_1c_stock" value="учёт / изменения">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" edge="1" parent="1" source="ds_1c_acc" style="endArrow=block;startArrow=block;html=1;strokeWidth=2;" target="ds_1c_stock" value="обмен данными (OLE)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Озеро данных" id="tobe-dfd-lake">
+    <mxGraphModel dx="1410" dy="825" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="src_ops" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;dashed=1;fillColor=#f5f5f5;" value="Источники (операционный контур)&#xa;CRM, EHR, Excel/файлы-наследие&#xa;PII / PHI — не копировать в озеро как есть" vertex="1">
+          <mxGeometry height="100" width="280" x="20" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="proc_etl" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;" value="Процесс&#xa;ETL / подготовка&#xa;минимизация, обезличивание, каталог, теги" vertex="1">
+          <mxGeometry height="110" width="300" x="435" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_lake" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;strokeWidth=2;fillColor=#dae8fc;" value="Хранилище данных&#xa;Data Lake&#xa;обезличенные / агрегированные наборы" vertex="1">
+          <mxGeometry height="120" width="300" x="820" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="proc_bi" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;" value="Процесс&#xa;BI / ML / AI&#xa;доступ по ролям" vertex="1">
+          <mxGeometry height="90" width="280" x="830" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_analyst" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" value="Внешний субъект&#xa;Бизнес-аналитик" vertex="1">
+          <mxGeometry height="70" width="220" x="100" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" edge="1" parent="1" source="src_ops" style="endArrow=block;html=1;strokeWidth=2;" target="proc_etl" value="выгрузки / CDC (логически)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" edge="1" parent="1" source="proc_etl" style="endArrow=block;html=1;strokeWidth=2;" target="ds_lake" value="запись в озеро">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" edge="1" parent="1" source="ds_lake" style="endArrow=block;html=1;strokeWidth=2;" target="proc_bi" value="витрины, обезличено">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" edge="1" parent="1" source="ext_analyst" style="endArrow=block;html=1;strokeWidth=2;" target="proc_bi" value="отчёты">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
